@@ -21,6 +21,7 @@
 		9F07DAB628D72AF200B6B96B /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07DAB528D72AF200B6B96B /* FeedItemsMapper.swift */; };
 		9F07DAB828D731DF00B6B96B /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07DAB728D731DF00B6B96B /* URLSessionHTTPClientTests.swift */; };
 		9F07DABA28D734EC00B6B96B /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07DAB928D734EC00B6B96B /* XCTestCase+MemoryLeakTracking.swift */; };
+		9F07DABC28D738B300B6B96B /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07DABB28D738B300B6B96B /* URLSessionHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		9F07DAB528D72AF200B6B96B /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		9F07DAB728D731DF00B6B96B /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		9F07DAB928D734EC00B6B96B /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		9F07DABB28D738B300B6B96B /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				9F07DAB128D70DF700B6B96B /* RemoteFeedLoader.swift */,
+				9F07DABB28D738B300B6B96B /* URLSessionHTTPClient.swift */,
 				9F07DAB528D72AF200B6B96B /* FeedItemsMapper.swift */,
 				9F07DAB328D72AD800B6B96B /* HTTPClient.swift */,
 			);
@@ -297,6 +300,7 @@
 				9F07DA8428D7078100B6B96B /* ContentView.swift in Sources */,
 				9F07DA8228D7078100B6B96B /* SocialAppApp.swift in Sources */,
 				9F07DAB428D72AD800B6B96B /* HTTPClient.swift in Sources */,
+				9F07DABC28D738B300B6B96B /* URLSessionHTTPClient.swift in Sources */,
 				9F07DAB628D72AF200B6B96B /* FeedItemsMapper.swift in Sources */,
 				9F07DAAE28D7091900B6B96B /* FeedLoader.swift in Sources */,
 				9F07DAB228D70DF700B6B96B /* RemoteFeedLoader.swift in Sources */,
