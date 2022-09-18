@@ -25,6 +25,7 @@
 		9FD396CA28D77BB700D5FB62 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396C928D77BB700D5FB62 /* FeedViewModel.swift */; };
 		9FD396CF28D7CFE900D5FB62 /* FeedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396CE28D7CFE900D5FB62 /* FeedCard.swift */; };
 		9FD396D128D7D11800D5FB62 /* FeedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396D028D7D11800D5FB62 /* FeedList.swift */; };
+		9FD396D328D7D20800D5FB62 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396D228D7D20800D5FB62 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		9FD396C928D77BB700D5FB62 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		9FD396CE28D7CFE900D5FB62 /* FeedCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCard.swift; sourceTree = "<group>"; };
 		9FD396D028D7D11800D5FB62 /* FeedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedList.swift; sourceTree = "<group>"; };
+		9FD396D228D7D20800D5FB62 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 			children = (
 				9FD396CE28D7CFE900D5FB62 /* FeedCard.swift */,
 				9FD396D028D7D11800D5FB62 /* FeedList.swift */,
+				9FD396D228D7D20800D5FB62 /* LoadingView.swift */,
 			);
 			path = "Feed UI";
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				9F07DA8428D7078100B6B96B /* ContentView.swift in Sources */,
 				9F07DA8228D7078100B6B96B /* SocialAppApp.swift in Sources */,
 				9F07DAB428D72AD800B6B96B /* HTTPClient.swift in Sources */,
+				9FD396D328D7D20800D5FB62 /* LoadingView.swift in Sources */,
 				9F07DABC28D738B300B6B96B /* URLSessionHTTPClient.swift in Sources */,
 				9F07DAB628D72AF200B6B96B /* FeedItemsMapper.swift in Sources */,
 				9F07DAAE28D7091900B6B96B /* FeedLoader.swift in Sources */,
