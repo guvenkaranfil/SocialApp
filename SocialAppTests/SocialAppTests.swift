@@ -35,13 +35,14 @@ class SocialAppTests: XCTestCase {
         XCTAssertTrue(client.requestedURLs.isEmpty)
     }
     
-    func test_load_requestDataFromURL() {
+    func test_loadTwice_requestsDataFromURLTwice() {
         let url = URL(string: "https://any-url.com")!
         let (sut, client) = makeSUT(url: url)
         
         sut.load()
+        sut.load()
         
-        XCTAssertEqual(client.requestedURLs, [url])
+        XCTAssertEqual(client.requestedURLs, [url, url])
     }
     
     
