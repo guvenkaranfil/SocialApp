@@ -16,10 +16,7 @@ public class RemoteFeedLoader {
         self.url = url
     }
     
-    public enum Result: Equatable {
-        case success([FeedItem])
-        case failure(Error)
-    }
+    public typealias Result = LoadFeedResult<Error>
     
     public enum Error: Swift.Error {
         case connectivity
