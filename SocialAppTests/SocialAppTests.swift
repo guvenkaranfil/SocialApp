@@ -70,6 +70,34 @@ class SocialAppTests: XCTestCase {
         XCTAssertEqual(capturedResults, [.success([])])
     }
     
+    func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
+        let (sut, client) = makeSUT()
+
+        let item1 = FeedItem(
+            id: UUID(),
+            name: " a name",
+            username: "a username",
+            text: "text",
+            imageURL: URL(string: "http://a-url.com")!)
+
+        let item1JSON = [
+            "id": item1.id.uuidString,
+            "name": item1.name,
+            "username": item1.username,
+            "text": item1.text,
+            "image": item1.imageURL.absoluteString
+        ]
+
+        let itemsJSON = [
+            "items": [item1JSON]
+        ]
+
+        expect(sut, toCompleteWith: .success([item1]), when: {
+            let json = try! JSONSerialization.data(withJSONObject: itemsJSON)
+            client.complete(withStatusCode: 200, data: json)
+        })
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(url: URL = URL(string: "https://any-url.com")!) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
