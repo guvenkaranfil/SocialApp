@@ -15,6 +15,7 @@
 		9F07DA9D28D7078300B6B96B /* SocialAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07DA9C28D7078300B6B96B /* SocialAppUITests.swift */; };
 		9F07DA9F28D7078300B6B96B /* SocialAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07DA9E28D7078300B6B96B /* SocialAppUITestsLaunchTests.swift */; };
 		9F07DAAC28D707FC00B6B96B /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07DAAB28D707FC00B6B96B /* FeedItem.swift */; };
+		9F07DAAE28D7091900B6B96B /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07DAAD28D7091900B6B96B /* FeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		9F07DA9C28D7078300B6B96B /* SocialAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAppUITests.swift; sourceTree = "<group>"; };
 		9F07DA9E28D7078300B6B96B /* SocialAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9F07DAAB28D707FC00B6B96B /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		9F07DAAD28D7091900B6B96B /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				9F07DA8128D7078100B6B96B /* SocialAppApp.swift */,
 				9F07DA8328D7078100B6B96B /* ContentView.swift */,
 				9F07DAAB28D707FC00B6B96B /* FeedItem.swift */,
+				9F07DAAD28D7091900B6B96B /* FeedLoader.swift */,
 				9F07DA8528D7078300B6B96B /* Assets.xcassets */,
 				9F07DA8728D7078300B6B96B /* Preview Content */,
 			);
@@ -262,6 +265,7 @@
 			files = (
 				9F07DA8428D7078100B6B96B /* ContentView.swift in Sources */,
 				9F07DA8228D7078100B6B96B /* SocialAppApp.swift in Sources */,
+				9F07DAAE28D7091900B6B96B /* FeedLoader.swift in Sources */,
 				9F07DAAC28D707FC00B6B96B /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
