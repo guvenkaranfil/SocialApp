@@ -17,7 +17,7 @@ jobs:
     - name: Select Xcode
       run: sudo xcode-select -switch /Applications/Xcode_13.0.app
 
-    name: install sim
+    - name: install sim
       run: xcversion simulators --install='iOS 15.5'
 
     - name: Build and test
