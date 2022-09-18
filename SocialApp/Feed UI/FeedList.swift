@@ -35,11 +35,13 @@ struct FeedViewList: View {
                         }
                     }
                     
-                case .loaded:
+                case .error:
                     VStack(alignment: .center) {
-                        Text("Something went wrong!\nPlease try again")
+                        Text("\nSomething went wrong!\nPlease try again")
+                            .multilineTextAlignment(.center)
+                            
                     }
-                    
+                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     
                 default: EmptyView()
                 }
