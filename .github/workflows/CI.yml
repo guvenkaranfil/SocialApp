@@ -14,11 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: maxim-lobanov/setup-xcode@v1
-      with:
-        xcode-version: latest-stable
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_13.4.1.app
 
-    - name: Create simulator
-      run: xcrun simctl create "iPhone 8" "com.apple.CoreSimulator.SimDeviceType.iPhone-8" "com.apple.CoreSimulator.SimRuntime.iOS-14-4"
     - name: Build and test
-      run: xcodebuild clean build test -project SocialApp.xcodeproj -scheme "Social Feed" -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 8" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
+      run: xcodebuild clean build test -project SocialApp.xcodeproj -scheme "CI" -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 13" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
