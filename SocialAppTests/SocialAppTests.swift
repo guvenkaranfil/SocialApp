@@ -27,6 +27,19 @@ class SocialAppTests: XCTestCase {
         XCTAssertEqual(client.requestedURLs, [url, url])
     }
     
+    func test_load_deliversErrorOnClientError() {
+        let url = URL(string: "https://any-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        
+        var capturedErrors = [RemoteFeedLoader.Error]()
+        sut.load { capturedErrors.append($0)}
+        
+        let clientError = NSError(domain: "Test", code: 0)
+        client.completions[0](clientError)
+        
+        XCTAssertEqual(capturedErrors, [.connectivity])
+    }
+    
     
     // MARK: - Helpers
     
@@ -39,9 +52,11 @@ class SocialAppTests: XCTestCase {
     
     private class HTTPClientSpy: HTTPClient {
         var requestedURLs = [URL]()
+        var completions = [(Error) -> Void]()
         
-        func get(from url: URL) {
+        func get(from url: URL, completion: @escaping (Error) -> Void) {
             requestedURLs.append(url)
+            completions.append(completion)
         }
     }
 }
