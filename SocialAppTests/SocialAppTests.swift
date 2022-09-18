@@ -94,7 +94,16 @@ class SocialAppTests: XCTestCase {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(client: client, url: url)
         
+        trackForMemoryLeaks(client)
+        trackForMemoryLeaks(sut)
+        
         return (sut, client)
+    }
+    
+    private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
+        }
     }
     
     private func expect(_ sut: RemoteFeedLoader, toCompleteWith result: RemoteFeedLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
