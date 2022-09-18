@@ -6,31 +6,55 @@
 //
 
 import XCTest
-@testable import SocialApp
+
+
+class RemoteFeedLoader {
+    let client: HTTPClient
+    let url: URL
+    
+    init(client: HTTPClient, url: URL) {
+        self.client = client
+        self.url = url
+    }
+    
+    func load() {
+        client.get(from: url)
+    }
+}
+
+protocol HTTPClient {
+    func get(from url: URL)
+}
 
 class SocialAppTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_init_doesNotRequestDataFromURL() {
+        let client = HTTPClientSpy()
+        let url = URL(string: "https://any-url.com")!
+        let _ = RemoteFeedLoader(client: client, url: url)
+        
+        
+        XCTAssertNil(client.requestedURL)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func test_load_requestDataFromURL() {
+        let client = HTTPClientSpy()
+        let url = URL(string: "https://any-url.com")!
+        let sut = RemoteFeedLoader(client: client, url: url)
+        
+        sut.load()
+        
+        XCTAssertEqual(url, client.requestedURL)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    
+    // MARK: - Helpers
+    
+    private class HTTPClientSpy: HTTPClient {
+        var requestedURL: URL?
+        
+        func get(from url: URL) {
+            requestedURL = url
         }
     }
-
 }
