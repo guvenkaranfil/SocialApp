@@ -73,27 +73,16 @@ class SocialAppTests: XCTestCase {
     func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
         let (sut, client) = makeSUT()
 
-        let item1 = FeedItem(
+        let item1 = makeItem(
             id: UUID(),
-            name: " a name",
+            name: "a name",
             username: "a username",
             text: "text",
             imageURL: URL(string: "http://a-url.com")!)
 
-        let item1JSON = [
-            "id": item1.id.uuidString,
-            "name": item1.name,
-            "username": item1.username,
-            "text": item1.text,
-            "image": item1.imageURL.absoluteString
-        ]
-
-        let itemsJSON = [
-            "items": [item1JSON]
-        ]
-
-        expect(sut, toCompleteWith: .success([item1]), when: {
-            let json = try! JSONSerialization.data(withJSONObject: itemsJSON)
+        let items = [item1.model]
+        expect(sut, toCompleteWith: .success(items), when: {
+            let json = makeItemsJSON([item1.json])
             client.complete(withStatusCode: 200, data: json)
         })
     }
@@ -114,6 +103,25 @@ class SocialAppTests: XCTestCase {
         action()
 
         XCTAssertEqual(capturedResults, [result], file: file, line: line)
+    }
+    
+    private func makeItem(id: UUID, name: String, username: String, text: String, imageURL: URL) -> (model: FeedItem, json: [String: Any]) {
+        let item = FeedItem(id: id, name: name, username: username, text: text, imageURL: imageURL)
+
+        let json = [
+            "id": id.uuidString,
+            "name": name,
+            "username": username,
+            "text": text,
+            "image": imageURL.absoluteString
+        ]
+
+        return (item, json)
+    }
+
+    private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
+        let json = ["items": items]
+        return try! JSONSerialization.data(withJSONObject: json)
     }
     
     private class HTTPClientSpy: HTTPClient {
