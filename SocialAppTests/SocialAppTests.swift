@@ -66,15 +66,15 @@ class SocialAppTests: XCTestCase {
     
     private class HTTPClientSpy: HTTPClient {
         var requestedURLs = [URL]()
-        var completions = [(Error?, HTTPURLResponse?) -> Void]()
+        var completions = [(HTTPClientResult) -> Void]()
         
-        func get(from url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void) {
+        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
             requestedURLs.append(url)
             completions.append(completion)
         }
         
         func complete(with error: Error, at index: Int = 0) {
-            completions[index](error, nil)
+            completions[index](.failure(error))
         }
         
         func complete(withStatusCode code: Int, at index: Int = 0) {
@@ -84,7 +84,7 @@ class SocialAppTests: XCTestCase {
                 httpVersion: nil,
                 headerFields: nil)!
             
-            completions[index](nil, response)
+            completions[index](.success(response))
         }
     }
 }
