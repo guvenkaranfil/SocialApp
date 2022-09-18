@@ -21,6 +21,7 @@ struct FeedViewList: View {
                             .frame(width: 50.0, height: 50.0)
                             .foregroundColor(Color("3dc6a7"))
                             .onAppear(perform: feedViewModel.loadFeed)
+                            .accessibilityIdentifier("feedListLoader")
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     
