@@ -40,6 +40,16 @@ class SocialAppTests: XCTestCase {
         XCTAssertEqual(capturedErrors, [.connectivity])
     }
     
+    func test_load_deliversErrorOnNon200HTTPResponse() {
+        let (sut, client) = makeSUT()
+
+        var capturedErrors = [RemoteFeedLoader.Error]()
+        sut.load { capturedErrors.append($0) }
+
+        client.complete(withStatusCode: 400)
+
+        XCTAssertEqual(capturedErrors, [.invalidData])
+    }
     
     // MARK: - Helpers
     
@@ -52,15 +62,25 @@ class SocialAppTests: XCTestCase {
     
     private class HTTPClientSpy: HTTPClient {
         var requestedURLs = [URL]()
-        var completions = [(Error) -> Void]()
+        var completions = [(Error?, HTTPURLResponse?) -> Void]()
         
-        func get(from url: URL, completion: @escaping (Error) -> Void) {
+        func get(from url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void) {
             requestedURLs.append(url)
             completions.append(completion)
         }
         
         func complete(with error: Error, at index: Int = 0) {
-            completions[index](error)
+            completions[index](error, nil)
+        }
+        
+        func complete(withStatusCode code: Int, at index: Int = 0) {
+            let response = HTTPURLResponse(
+                url: requestedURLs[index],
+                statusCode: code,
+                httpVersion: nil,
+                headerFields: nil)!
+            
+            completions[index](nil, response)
         }
     }
 }
