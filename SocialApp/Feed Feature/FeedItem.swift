@@ -22,3 +22,5 @@ public struct FeedItem: Equatable {
         self.imageURL = imageURL
     }
 }
+
+extension FeedItem: Identifiable { }
