@@ -4,10 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Socaial Feed.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>SocialApp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>9F07DA7D28D7078100B6B96B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F07DA8D28D7078300B6B96B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F07DA9728D7078300B6B96B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
