@@ -22,6 +22,7 @@
 		9F07DAB828D731DF00B6B96B /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07DAB728D731DF00B6B96B /* URLSessionHTTPClientTests.swift */; };
 		9F07DABA28D734EC00B6B96B /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07DAB928D734EC00B6B96B /* XCTestCase+MemoryLeakTracking.swift */; };
 		9F07DABC28D738B300B6B96B /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07DABB28D738B300B6B96B /* URLSessionHTTPClient.swift */; };
+		9FD396CA28D77BB700D5FB62 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396C928D77BB700D5FB62 /* FeedViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		9F07DAB728D731DF00B6B96B /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		9F07DAB928D734EC00B6B96B /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		9F07DABB28D738B300B6B96B /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		9FD396C928D77BB700D5FB62 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				9F07DA8128D7078100B6B96B /* SocialAppApp.swift */,
 				9F07DA8328D7078100B6B96B /* ContentView.swift */,
+				9FD396C928D77BB700D5FB62 /* FeedViewModel.swift */,
 				9F07DAB028D70DEB00B6B96B /* Feed API */,
 				9F07DAAF28D7094200B6B96B /* Feed Feature */,
 				9F07DA8528D7078300B6B96B /* Assets.xcassets */,
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FD396CA28D77BB700D5FB62 /* FeedViewModel.swift in Sources */,
 				9F07DA8428D7078100B6B96B /* ContentView.swift in Sources */,
 				9F07DA8228D7078100B6B96B /* SocialAppApp.swift in Sources */,
 				9F07DAB428D72AD800B6B96B /* HTTPClient.swift in Sources */,
