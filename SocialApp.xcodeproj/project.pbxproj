@@ -25,6 +25,7 @@
 		9F3DE8BE28D8FADA004D24F1 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3DE8BD28D8FADA004D24F1 /* FeedPresenter.swift */; };
 		9F3DE8C028D8FE69004D24F1 /* FeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3DE8BF28D8FE69004D24F1 /* FeedRouter.swift */; };
 		9F3DE8C328D903AE004D24F1 /* FeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3DE8C228D903AE004D24F1 /* FeedInteractor.swift */; };
+		9F3DE8C528D9043E004D24F1 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3DE8C428D9043E004D24F1 /* Color+Hex.swift */; };
 		9FD396CF28D7CFE900D5FB62 /* FeedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396CE28D7CFE900D5FB62 /* FeedCard.swift */; };
 		9FD396D128D7D11800D5FB62 /* FeedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396D028D7D11800D5FB62 /* FeedList.swift */; };
 		9FD396D328D7D20800D5FB62 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396D228D7D20800D5FB62 /* LoadingView.swift */; };
@@ -73,6 +74,7 @@
 		9F3DE8BD28D8FADA004D24F1 /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		9F3DE8BF28D8FE69004D24F1 /* FeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRouter.swift; sourceTree = "<group>"; };
 		9F3DE8C228D903AE004D24F1 /* FeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractor.swift; sourceTree = "<group>"; };
+		9F3DE8C428D9043E004D24F1 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		9FD396CE28D7CFE900D5FB62 /* FeedCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCard.swift; sourceTree = "<group>"; };
 		9FD396D028D7D11800D5FB62 /* FeedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedList.swift; sourceTree = "<group>"; };
 		9FD396D228D7D20800D5FB62 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -130,10 +132,10 @@
 		9F07DA8028D7078100B6B96B /* SocialApp */ = {
 			isa = PBXGroup;
 			children = (
-				9F3DE8C128D9035A004D24F1 /* Shared API */,
-				9FD396DB28D8013600D5FB62 /* Helpers */,
 				9F07DA8128D7078100B6B96B /* SocialAppApp.swift */,
 				9F07DA8328D7078100B6B96B /* ContentView.swift */,
+				9F3DE8C128D9035A004D24F1 /* Shared API */,
+				9FD396DB28D8013600D5FB62 /* Helpers */,
 				9FD396D928D8009100D5FB62 /* PostFeed.swift */,
 				9F3DE8BC28D8F6DE004D24F1 /* Feed Module */,
 				9FD396D828D8001200D5FB62 /* View Models */,
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				9FD396DC28D8015100D5FB62 /* ImagePicker.swift */,
+				9F3DE8C428D9043E004D24F1 /* Color+Hex.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				9F07DA8428D7078100B6B96B /* ContentView.swift in Sources */,
 				9F3DE8BE28D8FADA004D24F1 /* FeedPresenter.swift in Sources */,
 				9F07DA8228D7078100B6B96B /* SocialAppApp.swift in Sources */,
+				9F3DE8C528D9043E004D24F1 /* Color+Hex.swift in Sources */,
 				9F07DAB428D72AD800B6B96B /* HTTPClient.swift in Sources */,
 				9FD396D328D7D20800D5FB62 /* LoadingView.swift in Sources */,
 				9F3DE8BB28D8F62A004D24F1 /* User.swift in Sources */,
