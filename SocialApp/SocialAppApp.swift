@@ -28,7 +28,7 @@ struct SocialAppApp: App {
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: PostFeed()) {
+                            NavigationLink(destination: PostFeed(feedViewModel: feedViewModel, usersViewModel: usersViewModal)) {
                                 Image(systemName: "plus")
                                     .foregroundColor(.secondary)
                                     .foregroundStyle(.primary)

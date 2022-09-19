@@ -15,8 +15,10 @@ enum ViewState<T: Equatable>: Equatable {
 
 final class FeedViewModel: ObservableObject {
     @Published var state: ViewState<[FeedItem]> = .loading
+    @Published var isPosting: Bool = false
 
     private let loader: RemoteFeedLoader
+    private var feedItems = [FeedItem]()
     
     init(loader: RemoteFeedLoader) {
         self.loader = loader
@@ -29,10 +31,25 @@ final class FeedViewModel: ObservableObject {
             case let .success(items):
                 DispatchQueue.main.async {
                     self?.state = .loaded(items)
+                    self?.feedItems = items
                 }
             case let .failure(error):
                 self?.state = .error(message: error.localizedDescription)
             }
+        }
+    }
+    
+    func postFeed(_ item: FeedItem) {
+        self.state = .loading
+        self.isPosting = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.feedItems.insert(item, at: 0)
+            
+            DispatchQueue.main.async {
+                self.state = .loaded(self.feedItems)
+            }
+            
+            self.isPosting = false
         }
     }
 }

@@ -37,11 +37,17 @@ struct FeedCard: View {
                         .lineLimit(3)
                         .padding(.trailing)
                     
-                    AsyncImage(url: self.feed.imageURL)
-                        .frame(width: geometry.size.width / 1.5, height: 200)
-                        .clipShape(RoundedRectangle(cornerRadius: 25))
-                        .aspectRatio(contentMode: .fit)
-
+                    if (self.feed.image != nil) {
+                        Image(uiImage: self.feed.image!)
+                            .frame(width: geometry.size.width / 1.5, height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 25))
+                            .aspectRatio(contentMode: .fit)
+                    } else {
+                        AsyncImage(url: self.feed.imageURL)
+                            .frame(width: geometry.size.width / 1.5, height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 25))
+                            .aspectRatio(contentMode: .fit)
+                    }
                 }
             }
     }
@@ -55,7 +61,8 @@ struct FeedCard_Previews: PreviewProvider {
                 name: "a name",
                 username: "ausername",
                 text: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-                imageURL: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHCj1m8wirjuacH_P9sphVIKKnsY6KSI2Y3A&usqp=CAU")!)
+                imageURL: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHCj1m8wirjuacH_P9sphVIKKnsY6KSI2Y3A&usqp=CAU")!,
+            image: nil)
             FeedCard(geometry: geometry, feed: feed)
         }
     }
