@@ -26,7 +26,7 @@ class SocialAppUITests: XCTestCase {
         XCTAssertFalse(loaderView.waitForExistence(timeout: 3.0))
     }
     
-    func test_() {
+    func test_validate_uploadPostFeedFlow() {
         let app = XCUIApplication()
         app.launch()
         
