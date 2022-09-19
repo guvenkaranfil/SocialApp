@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct UsersMenu: View {
-    @ObservedObject var usersViewModel: UsersViewModel
+    @ObservedObject var postInteractor: PostInteractor
     
-    init(usersViewModel: UsersViewModel) {
-        self.usersViewModel = usersViewModel
+    init(postInteractor: PostInteractor) {
+        self.postInteractor = postInteractor
     }
     
     var body: some View {
-        Menu(self.usersViewModel.currentUser!.username) {
-            let otherUsers = self.usersViewModel.users.filter { user in
-                return user.username != self.usersViewModel.currentUser?.username
+        Menu(self.postInteractor.currentUser!.username) {
+            let otherUsers = self.postInteractor.users.filter { user in
+                return user.username != self.postInteractor.currentUser?.username
             }
             ForEach(otherUsers) { user in
                 Button(user.username) {
-                    self.usersViewModel.select(user)
+                    self.postInteractor.select(user)
                 }
             }
         }
@@ -32,6 +32,6 @@ struct UsersMenu: View {
 
 struct UsersMenu_Previews: PreviewProvider {
     static var previews: some View {
-        UsersMenu(usersViewModel: UsersViewModel())
+        UsersMenu(postInteractor: PostInteractor())
     }
 }

@@ -16,7 +16,7 @@ struct SocialAppApp: App {
             let client = URLSessionHTTPClient(session: session)
             let feedLoader = RemoteFeedLoader(client: client, url: url)
                         
-            let usersViewModal = UsersViewModel()
+            let postInteractor = PostInteractor()
             
             let feedInteractor = FeedInteractor(loader: feedLoader)
             let feedPresenter = FeedPresenter(interactor: feedInteractor)
@@ -26,11 +26,11 @@ struct SocialAppApp: App {
                     .navigationTitle("Posts")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
-                            UsersMenu(usersViewModel: usersViewModal)
+                            UsersMenu(postInteractor: postInteractor)
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            FeedRouter.makeNavigationView(feedPresenter: feedPresenter, usersViewModel: usersViewModal)
+                            FeedRouter.makeNavigationView(feedPresenter: feedPresenter, postInteractor: postInteractor)
                         }
                     }
             }

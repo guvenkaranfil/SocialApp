@@ -8,8 +8,8 @@
 import SwiftUI
 
 class FeedRouter {
-    static func makeNavigationView(feedPresenter: FeedPresenter, usersViewModel: UsersViewModel) -> some View {
-        NavigationLink(destination: PostFeed(feedPresenter: feedPresenter, usersViewModel: usersViewModel)) {
+    static func makeNavigationView(feedPresenter: FeedPresenter, postInteractor: PostInteractor) -> some View {
+        NavigationLink(destination: PostFeed(feedPresenter: feedPresenter, postInteractor: postInteractor)) {
             Image(systemName: "plus")
                 .foregroundColor(.secondary)
                 .foregroundStyle(.primary)

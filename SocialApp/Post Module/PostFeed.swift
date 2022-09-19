@@ -9,11 +9,11 @@ import SwiftUI
 
 struct PostFeed: View {
     @ObservedObject var feedPresenter: FeedPresenter
-    @ObservedObject var usersViewModel: UsersViewModel
+    @ObservedObject var postInteractor: PostInteractor
     
-    init(feedPresenter: FeedPresenter, usersViewModel: UsersViewModel) {
+    init(feedPresenter: FeedPresenter, postInteractor: PostInteractor) {
         self.feedPresenter = feedPresenter
-        self.usersViewModel =  usersViewModel
+        self.postInteractor =  postInteractor
     }
     
     @State private var text: String = "Lorem ipsum"
@@ -67,9 +67,9 @@ struct PostFeed: View {
                     .onTapGesture {                        
                         let item = FeedItem(
                             id: UUID(),
-                            name: self.usersViewModel.currentUser!.name,
-                            username: self.usersViewModel.currentUser!.username,
-                            profileIcon: self.usersViewModel.currentUser!.profileIcon,
+                            name: self.postInteractor.currentUser!.name,
+                            username: self.postInteractor.currentUser!.username,
+                            profileIcon: self.postInteractor.currentUser!.profileIcon,
                             text: self.text,
                             imageURL: URL(string: "http://any-url.com")!,
                             image: self.image)
@@ -93,6 +93,6 @@ struct PostFeed_Previews: PreviewProvider {
         PostFeed(
             feedPresenter: FeedPresenter(
                 interactor: FeedInteractor(loader: remoteLoader)),
-            usersViewModel: UsersViewModel())
+            postInteractor: PostInteractor())
     }
 }
