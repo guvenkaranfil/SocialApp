@@ -8,34 +8,63 @@
 import XCTest
 
 class SocialAppUITests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func test_init_showsPostsNavigationBarTitle() {
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let navBarTitle = app.staticTexts["Posts"]
+        
+        XCTAssert(navBarTitle.exists)
     }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+    
+    func test_init_hidesLoaderGradually() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let loaderView = app.otherElements["feedListLoader"]
+        
+        XCTAssertFalse(loaderView.waitForExistence(timeout: 3.0))
+    }
+    
+    func test_() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        goToPostFeedScreenAndTypePostText(app)
+        pickFirstImage(app)
+        submitPost(app)
+        validateSubmittedPost(app)
+    }
+    
+    // MARK: - Helpers
+    
+    private func goToPostFeedScreenAndTypePostText(_ app: XCUIApplication) {
+        app.otherElements.buttons["postFeed"].tap()
+        let postText = app.tables.cells.textViews["postFeedTextfield"]
+        XCTAssertTrue(postText.waitForExistence(timeout: 2))
+        postText.tap()
+        postText.typeText("post text from UI Test")
+    }
+    
+    private func pickFirstImage( _ app: XCUIApplication) {
+        app.staticTexts["Pick a Photo"].tap()
+        let image = app.scrollViews.images.firstMatch
+        if image.waitForExistence(timeout: 5) {
+            image.tap()
+            XCTAssertNotNil(image)
         }
+    }
+    
+    private func submitPost(_ app: XCUIApplication) {
+        let submitbutton = app.staticTexts["Submit"]
+        XCTAssertTrue(submitbutton.waitForExistence(timeout: 3))
+        submitbutton.tap()
+        let _ = XCTWaiter.wait(for: [XCTestExpectation(description: "Hello World!")], timeout: 2.0)
+    }
+    
+    private func validateSubmittedPost(_ app: XCUIApplication) {
+        app.navigationBars.buttons.firstMatch.tap()
+        XCTAssertTrue(app.staticTexts["Posts"].waitForExistence(timeout: 5.0))
+        XCTAssertTrue(app.staticTexts["post text from UI TestLorem ipsum"].waitForExistence(timeout: 5.0))
     }
 }

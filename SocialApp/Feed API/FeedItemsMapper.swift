@@ -20,11 +20,12 @@ internal final class FeedItemsMapper {
         let id: UUID
         let name: String
         let username: String
+        let profileIcon: String
         let text: String
         let image: URL
 
         var item: FeedItem {
-            return FeedItem(id: id, name: name,username: username, text: text, imageURL: image)
+            return FeedItem(id: id, name: name,username: username, profileIcon: profileIcon, text: text, imageURL: image, image: nil)
         }
     }
     

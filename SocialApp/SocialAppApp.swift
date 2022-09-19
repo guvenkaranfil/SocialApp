@@ -11,7 +11,33 @@ import SwiftUI
 struct SocialAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let url = URL(string: "https://jsonblob.com/api/jsonBlob/1021062556189736960")!
+            let session = URLSession(configuration: .ephemeral)
+            let client = URLSessionHTTPClient(session: session)
+            let feedLoader = RemoteFeedLoader(client: client, url: url)
+            
+            
+            let usersViewModal = UsersViewModel()
+            let feedViewModel = FeedViewModel(loader: feedLoader)
+            NavigationView {
+                FeedViewList(feedViewModel: feedViewModel)
+                    .navigationTitle("Posts")
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            UsersMenu(usersViewModel: usersViewModal)
+                        }
+                        
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            NavigationLink(destination: PostFeed(feedViewModel: feedViewModel, usersViewModel: usersViewModal)) {
+                                Image(systemName: "plus")
+                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.primary)
+                            }
+                            .accessibilityIdentifier("postFeed")
+                        }
+                    }
+            }
         }
     }
 }
+

@@ -75,6 +75,7 @@ class SocialAppTests: XCTestCase {
             id: UUID(),
             name: "a name",
             username: "a username",
+            profileIcon: "name_icon",
             text: "text",
             imageURL: URL(string: "http://a-url.com")!)
 
@@ -138,13 +139,14 @@ class SocialAppTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    private func makeItem(id: UUID, name: String, username: String, text: String, imageURL: URL) -> (model: FeedItem, json: [String: Any]) {
-        let item = FeedItem(id: id, name: name, username: username, text: text, imageURL: imageURL)
+    private func makeItem(id: UUID, name: String, username: String, profileIcon: String = "icon", text: String, imageURL: URL, image: UIImage? = nil) -> (model: FeedItem, json: [String: Any]) {
+        let item = FeedItem(id: id, name: name, username: username, profileIcon: "name_icon", text: text, imageURL: imageURL, image: nil)
 
         let json = [
             "id": id.uuidString,
             "name": name,
             "username": username,
+            "profileIcon": profileIcon,
             "text": text,
             "image": imageURL.absoluteString
         ]
