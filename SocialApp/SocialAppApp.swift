@@ -16,11 +16,17 @@ struct SocialAppApp: App {
             let client = URLSessionHTTPClient(session: session)
             let feedLoader = RemoteFeedLoader(client: client, url: url)
             
+            
+            let usersViewModal = UsersViewModel()
             let feedViewModel = FeedViewModel(loader: feedLoader)
             NavigationView {
                 FeedViewList(feedViewModel: feedViewModel)
                     .navigationTitle("Posts")
                     .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            UsersMenu(usersViewModel: usersViewModal)
+                        }
+                        
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
                                 print("Pressed")
