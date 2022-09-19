@@ -29,6 +29,7 @@ struct PostFeed: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(16)
                     .frame(width: nil, height: 150, alignment: .center)
+                    .accessibilityIdentifier("postFeedTextfield")
 
                 Spacer(minLength: 50)
                 HStack {
@@ -69,7 +70,7 @@ struct PostFeed: View {
                             name: self.usersViewModel.currentUser!.name,
                             username: self.usersViewModel.currentUser!.username,
                             profileIcon: self.usersViewModel.currentUser!.profileIcon,
-                            text: "a text",
+                            text: self.text,
                             imageURL: URL(string: "http://any-url.com")!,
                             image: self.image)
                         self.feedViewModel.postFeed(item)

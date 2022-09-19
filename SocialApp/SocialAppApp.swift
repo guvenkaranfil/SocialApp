@@ -33,6 +33,7 @@ struct SocialAppApp: App {
                                     .foregroundColor(.secondary)
                                     .foregroundStyle(.primary)
                             }
+                            .accessibilityIdentifier("postFeed")
                         }
                     }
             }
