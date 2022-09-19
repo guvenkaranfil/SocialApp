@@ -12,14 +12,15 @@ struct User: Identifiable {
     let id: UUID
     let name: String
     let username: String
+    let profileIcon: String
     let image: UIImage
 }
 
 class UsersViewModel: ObservableObject {
     public let users: [User] = [
-        User(id: UUID(), name: "John", username: "@stoneJohn", image: UIImage(systemName: "house")!),
-        User(id: UUID(), name: "Mia", username: "@wongMia", image: UIImage(systemName: "externaldrive.badge.plus")!),
-        User(id: UUID(), name: "Natalie", username: "@leeNatalie", image: UIImage(systemName: "doc")!)
+        User(id: UUID(), name: "John", username: "@stoneJohn", profileIcon: "square.and.pencil", image: UIImage(systemName: "house")!),
+        User(id: UUID(), name: "Mia", username: "@wongMia", profileIcon: "square.and.pencil", image: UIImage(systemName: "externaldrive.badge.plus")!),
+        User(id: UUID(), name: "Natalie", username: "@leeNatalie", profileIcon: "square.and.pencil", image: UIImage(systemName: "doc")!)
     ]
     @Published var currentUser: User?
     

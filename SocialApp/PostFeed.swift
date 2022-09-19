@@ -69,6 +69,7 @@ struct PostFeed: View {
                             id: UUID(),
                             name: self.usersViewModel.currentUser!.name,
                             username: self.usersViewModel.currentUser!.username,
+                            profileIcon: self.usersViewModel.currentUser!.profileIcon,
                             text: "a text",
                             imageURL: URL(string: "http://any-url.com")!,
                             image: self.image)

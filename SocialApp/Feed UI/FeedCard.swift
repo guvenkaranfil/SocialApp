@@ -18,7 +18,7 @@ struct FeedCard: View {
     
     var body: some View {
             HStack(alignment: .top) {
-                Image(systemName: "square.and.pencil")
+                Image(systemName: feed.profileIcon)
                     .resizable()
                     .frame(width: 100, height: 100)
                     .clipShape(Circle())
@@ -60,6 +60,7 @@ struct FeedCard_Previews: PreviewProvider {
                 id: UUID(),
                 name: "a name",
                 username: "ausername",
+                profileIcon: "square.and.pencil",
                 text: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
                 imageURL: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHCj1m8wirjuacH_P9sphVIKKnsY6KSI2Y3A&usqp=CAU")!,
             image: nil)
