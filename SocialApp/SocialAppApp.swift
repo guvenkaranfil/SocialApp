@@ -28,9 +28,7 @@ struct SocialAppApp: App {
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button {
-                                print("Pressed")
-                            } label: {
+                            NavigationLink(destination: PostFeed()) {
                                 Image(systemName: "plus")
                                     .foregroundColor(.secondary)
                                     .foregroundStyle(.primary)

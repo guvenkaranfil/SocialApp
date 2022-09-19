@@ -28,6 +28,7 @@
 		9FD396D328D7D20800D5FB62 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396D228D7D20800D5FB62 /* LoadingView.swift */; };
 		9FD396D528D7F7E300D5FB62 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396D428D7F7E300D5FB62 /* UsersViewModel.swift */; };
 		9FD396D728D7FCCB00D5FB62 /* UsersMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396D628D7FCCB00D5FB62 /* UsersMenu.swift */; };
+		9FD396DA28D8009100D5FB62 /* PostFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD396D928D8009100D5FB62 /* PostFeed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		9FD396D228D7D20800D5FB62 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9FD396D428D7F7E300D5FB62 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		9FD396D628D7FCCB00D5FB62 /* UsersMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersMenu.swift; sourceTree = "<group>"; };
+		9FD396D928D8009100D5FB62 /* PostFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFeed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				9F07DAAF28D7094200B6B96B /* Feed Feature */,
 				9F07DA8528D7078300B6B96B /* Assets.xcassets */,
 				9F07DA8728D7078300B6B96B /* Preview Content */,
+				9FD396D928D8009100D5FB62 /* PostFeed.swift */,
 			);
 			path = SocialApp;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				9F07DAB228D70DF700B6B96B /* RemoteFeedLoader.swift in Sources */,
 				9FD396D128D7D11800D5FB62 /* FeedList.swift in Sources */,
 				9FD396D728D7FCCB00D5FB62 /* UsersMenu.swift in Sources */,
+				9FD396DA28D8009100D5FB62 /* PostFeed.swift in Sources */,
 				9F07DAAC28D707FC00B6B96B /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
