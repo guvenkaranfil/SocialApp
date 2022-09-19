@@ -1,30 +1,25 @@
 //
-//  FeedViewModel.swift
+//  FeedInteractor.swift
 //  SocialApp
 //
-//  Created by Güven Karanfil on 18.09.2022.
+//  Created by Güven Karanfil on 19.09.2022.
 //
 
 import Foundation
 
-enum ViewState<T: Equatable>: Equatable {
-    case loading
-    case loaded(T)
-    case error(message: String?)
-}
-
-final class FeedViewModel: ObservableObject {
+public class FeedInteractor {
     @Published var state: ViewState<[FeedItem]> = .loading
     @Published var isPosting: Bool = false
 
     private let loader: RemoteFeedLoader
     private var feedItems = [FeedItem]()
     
-    init(loader: RemoteFeedLoader) {
+    
+    public init(loader: RemoteFeedLoader) {
         self.loader = loader
     }
     
-    func loadFeed() {
+    public func loadFeed() {
         state = .loading
         loader.load { [weak self] result in
             switch result {
@@ -39,7 +34,7 @@ final class FeedViewModel: ObservableObject {
         }
     }
     
-    func postFeed(_ item: FeedItem) {
+    public func postFeed(_ item: FeedItem) {
         self.state = .loading
         self.isPosting = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

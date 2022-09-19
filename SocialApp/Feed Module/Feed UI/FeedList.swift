@@ -9,18 +9,18 @@ import Foundation
 import SwiftUI
 
 struct FeedViewList: View {
-    @StateObject var feedViewModel: FeedViewModel
+    @StateObject var feedPresenter: FeedPresenter
     
     var body: some View {
         GeometryReader { geometry in
             Group {
-                switch feedViewModel.state {
+                switch feedPresenter.state {
                 case .loading:
                     VStack() {
                         LoadingView()
                             .frame(width: 50.0, height: 50.0)
                             .foregroundColor(Color("3dc6a7"))
-                            .onAppear(perform: feedViewModel.loadFeed)
+                            .onAppear(perform: feedPresenter.onAppear)
                             .accessibilityIdentifier("feedListLoader")
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)

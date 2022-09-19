@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct PostFeed: View {
-    @ObservedObject var feedViewModel: FeedViewModel
-    @ObservedObject var usersViewModel: UsersViewModel
+    @ObservedObject var feedPresenter: FeedPresenter
+    @ObservedObject var postInteractor: PostInteractor
     
-    init(feedViewModel: FeedViewModel, usersViewModel: UsersViewModel) {
-        self.feedViewModel = feedViewModel
-        self.usersViewModel =  usersViewModel
+    init(feedPresenter: FeedPresenter, postInteractor: PostInteractor) {
+        self.feedPresenter = feedPresenter
+        self.postInteractor =  postInteractor
     }
     
     @State private var text: String = "Lorem ipsum"
@@ -56,7 +56,7 @@ struct PostFeed: View {
                     ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)}
                 
                 Spacer(minLength: 50)
-                Text(self.feedViewModel.isPosting ? "Submitting..." : "Submit")
+                Text(self.feedPresenter.isPosting ? "Submitting..." : "Submit")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
@@ -67,15 +67,16 @@ struct PostFeed: View {
                     .onTapGesture {                        
                         let item = FeedItem(
                             id: UUID(),
-                            name: self.usersViewModel.currentUser!.name,
-                            username: self.usersViewModel.currentUser!.username,
-                            profileIcon: self.usersViewModel.currentUser!.profileIcon,
+                            name: self.postInteractor.currentUser!.name,
+                            username: self.postInteractor.currentUser!.username,
+                            profileIcon: self.postInteractor.currentUser!.profileIcon,
                             text: self.text,
                             imageURL: URL(string: "http://any-url.com")!,
                             image: self.image)
-                        self.feedViewModel.postFeed(item)
+                        
+                        self.feedPresenter.onSubmit(item: item)
                     }
-                    .disabled(self.feedViewModel.isPosting)
+                    .disabled(self.feedPresenter.isPosting)
                 
                 Spacer(minLength: 25)
             }
@@ -85,10 +86,13 @@ struct PostFeed: View {
 
 struct PostFeed_Previews: PreviewProvider {
     static var previews: some View {
-        PostFeed(feedViewModel:
-                    FeedViewModel(
-                        loader: RemoteFeedLoader(
-                            client: URLSessionHTTPClient(session: .shared),
-                            url: URL(string: "http://any-url.com")!)), usersViewModel: UsersViewModel())
+        
+        let url = URL(string: "http://any-url.com")!
+        let client = URLSessionHTTPClient(session: .shared)
+        let remoteLoader = RemoteFeedLoader(client: client, url: url)
+        PostFeed(
+            feedPresenter: FeedPresenter(
+                interactor: FeedInteractor(loader: remoteLoader)),
+            postInteractor: PostInteractor())
     }
 }
