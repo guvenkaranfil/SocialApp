@@ -15,12 +15,14 @@ struct SocialAppApp: App {
             let session = URLSession(configuration: .ephemeral)
             let client = URLSessionHTTPClient(session: session)
             let feedLoader = RemoteFeedLoader(client: client, url: url)
-            
-            
+                        
             let usersViewModal = UsersViewModel()
-            let feedViewModel = FeedViewModel(loader: feedLoader)
+            
+            let feedInteractor = FeedInteractor(loader: feedLoader)
+            let feedPresenter = FeedPresenter(interactor: feedInteractor)
+            
             NavigationView {
-                FeedViewList(feedViewModel: feedViewModel)
+                FeedViewList(feedPresenter: feedPresenter)
                     .navigationTitle("Posts")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
@@ -28,12 +30,7 @@ struct SocialAppApp: App {
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: PostFeed(feedViewModel: feedViewModel, usersViewModel: usersViewModal)) {
-                                Image(systemName: "plus")
-                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.primary)
-                            }
-                            .accessibilityIdentifier("postFeed")
+                            FeedRouter.makeNavigationView(feedPresenter: feedPresenter, usersViewModel: usersViewModal)
                         }
                     }
             }

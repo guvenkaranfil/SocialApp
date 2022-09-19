@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum ViewState<T: Equatable>: Equatable {
+enum ViewState2<T: Equatable>: Equatable {
     case loading
     case loaded(T)
     case error(message: String?)
 }
 
 final class FeedViewModel: ObservableObject {
-    @Published var state: ViewState<[FeedItem]> = .loading
+    @Published var state: ViewState2<[FeedItem]> = .loading
     @Published var isPosting: Bool = false
 
     private let loader: RemoteFeedLoader

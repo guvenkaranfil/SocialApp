@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct PostFeed: View {
-    @ObservedObject var feedViewModel: FeedViewModel
+    @ObservedObject var feedPresenter: FeedPresenter
     @ObservedObject var usersViewModel: UsersViewModel
     
-    init(feedViewModel: FeedViewModel, usersViewModel: UsersViewModel) {
-        self.feedViewModel = feedViewModel
+    init(feedPresenter: FeedPresenter, usersViewModel: UsersViewModel) {
+        self.feedPresenter = feedPresenter
         self.usersViewModel =  usersViewModel
     }
     
@@ -56,7 +56,7 @@ struct PostFeed: View {
                     ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)}
                 
                 Spacer(minLength: 50)
-                Text(self.feedViewModel.isPosting ? "Submitting..." : "Submit")
+                Text(self.feedPresenter.isPosting ? "Submitting..." : "Submit")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
@@ -73,9 +73,10 @@ struct PostFeed: View {
                             text: self.text,
                             imageURL: URL(string: "http://any-url.com")!,
                             image: self.image)
-                        self.feedViewModel.postFeed(item)
+                        
+                        self.feedPresenter.onSubmit(item: item)
                     }
-                    .disabled(self.feedViewModel.isPosting)
+                    .disabled(self.feedPresenter.isPosting)
                 
                 Spacer(minLength: 25)
             }
@@ -85,10 +86,13 @@ struct PostFeed: View {
 
 struct PostFeed_Previews: PreviewProvider {
     static var previews: some View {
-        PostFeed(feedViewModel:
-                    FeedViewModel(
-                        loader: RemoteFeedLoader(
-                            client: URLSessionHTTPClient(session: .shared),
-                            url: URL(string: "http://any-url.com")!)), usersViewModel: UsersViewModel())
+        
+        let url = URL(string: "http://any-url.com")!
+        let client = URLSessionHTTPClient(session: .shared)
+        let remoteLoader = RemoteFeedLoader(client: client, url: url)
+        PostFeed(
+            feedPresenter: FeedPresenter(
+                interactor: FeedInteractor(loader: remoteLoader)),
+            usersViewModel: UsersViewModel())
     }
 }
