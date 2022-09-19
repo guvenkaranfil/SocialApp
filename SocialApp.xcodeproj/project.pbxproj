@@ -124,8 +124,7 @@
 			children = (
 				9F07DA8128D7078100B6B96B /* SocialAppApp.swift */,
 				9F07DA8328D7078100B6B96B /* ContentView.swift */,
-				9FD396C928D77BB700D5FB62 /* FeedViewModel.swift */,
-				9FD396D428D7F7E300D5FB62 /* UsersViewModel.swift */,
+				9FD396D828D8001200D5FB62 /* View Models */,
 				9FD396CD28D7CFDC00D5FB62 /* Feed UI */,
 				9F07DAB028D70DEB00B6B96B /* Feed API */,
 				9F07DAAF28D7094200B6B96B /* Feed Feature */,
@@ -191,6 +190,15 @@
 				9FD396D628D7FCCB00D5FB62 /* UsersMenu.swift */,
 			);
 			path = "Feed UI";
+			sourceTree = "<group>";
+		};
+		9FD396D828D8001200D5FB62 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				9FD396C928D77BB700D5FB62 /* FeedViewModel.swift */,
+				9FD396D428D7F7E300D5FB62 /* UsersViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
