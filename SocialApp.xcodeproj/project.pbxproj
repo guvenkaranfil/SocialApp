@@ -128,6 +128,7 @@
 		9F07DA8028D7078100B6B96B /* SocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				9F3DE8C128D9035A004D24F1 /* Shared API */,
 				9FD396DB28D8013600D5FB62 /* Helpers */,
 				9F07DA8128D7078100B6B96B /* SocialAppApp.swift */,
 				9F07DA8328D7078100B6B96B /* ContentView.swift */,
@@ -181,9 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				9F07DAB128D70DF700B6B96B /* RemoteFeedLoader.swift */,
-				9F07DABB28D738B300B6B96B /* URLSessionHTTPClient.swift */,
 				9F07DAB528D72AF200B6B96B /* FeedItemsMapper.swift */,
-				9F07DAB328D72AD800B6B96B /* HTTPClient.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -197,6 +196,15 @@
 				9F3DE8BF28D8FE69004D24F1 /* FeedRouter.swift */,
 			);
 			path = "Feed Module";
+			sourceTree = "<group>";
+		};
+		9F3DE8C128D9035A004D24F1 /* Shared API */ = {
+			isa = PBXGroup;
+			children = (
+				9F07DAB328D72AD800B6B96B /* HTTPClient.swift */,
+				9F07DABB28D738B300B6B96B /* URLSessionHTTPClient.swift */,
+			);
+			path = "Shared API";
 			sourceTree = "<group>";
 		};
 		9FD396CD28D7CFDC00D5FB62 /* Feed UI */ = {
